@@ -15,33 +15,38 @@ var orm = {
 
     // Insert one burger
     insertOne: function (table, val, cb) {
-
-        connection.query("INSERT INTO " + table + " (burger_name) VALUES ('" + val + "');", function (err, result) {
+        var queryString = "INSERT INTO " + table + " (burger_name) VALUES ('" + val + "');";
+        connection.query(queryString, function (err, result) {
 
             if (err) throw err;
 
-            console.log(result);
+            cb(result);
         });
 
     },
 
     // Update one burger
     updateOne: function (table, idUpdated, cb) {
-        connection.query('UPDATE ' + table + ' SET devoured=true WHERE id= ' + idUpdated + ';', function (err, result) {
+        var queryString = 'UPDATE ' + table + ' SET devoured=true WHERE id= ' + idUpdated + ';';
+        connection.query(queryString, function (err, result) {
             if (err) throw err;
-            console.log(result);
+            cb(result);
         });
     },
 
     // delete One Burger
     deleteOne: function (table, idDeleted, cb) {
-        connection.query('DELETE FROM ' + table + ' WHERE id= ' + idDeleted + ';', function (err, result) {
+        var queryString = 'DELETE FROM ' + table + ' WHERE id= ' + idDeleted + ';';
+        connection.query(queryString, function (err, result) {
             if (err) throw err;
-            console.log(result);
+            cb(result);
         });
     }
 
 }
+
+// orm.insertOne("burgers", "Cheese Steak Burger");
+// orm.selectAll("burgers");
 
 
 // Export ORM
