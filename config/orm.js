@@ -6,23 +6,23 @@ var connection = require("./connection");
 var orm = {
     // Select All The Burgers in the database
     selectAll: function (table, cb) {
+        // creating the queryString 
         var queryString = "SELECT * FROM " + table + ";";
         connection.query(queryString, function (err, result) {
             if (err) throw err;
-            console.log(result);
+            cb(result);
         });
     },
 
     // Insert one burger
     insertOne: function (table, val, cb) {
+        // creating the queryString 
         var queryString = "INSERT INTO " + table + " (burger_name) VALUES ('" + val + "');";
         connection.query(queryString, function (err, result) {
 
             if (err) throw err;
-
             cb(result);
         });
-
     },
 
     // Update one burger
