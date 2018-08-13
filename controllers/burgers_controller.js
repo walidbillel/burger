@@ -5,7 +5,7 @@ var burger = require("../models/burger.js");
 
 var router = express.Router();
 
-// console.log(router);
+
 
 // Route to get all the burgers
 router.get("/", function(req, res){
@@ -21,6 +21,6 @@ router.get("/", function(req, res){
 
 // Route to create another burger
 router.post("/burgers/create", function(req, res){
-  
+    burger.insert()
 })
 
