@@ -19,12 +19,15 @@ var burger = {
             cb(res);
         });
     },
-    delete: function (idDeleted, cb) {
-        orm.deleteOne("burgers", idDeleted, function (res) {
-            cb(res);
-        });
-    }
+
+    // delete: function (idDeleted, cb) {
+    //     orm.deleteOne("burgers", idDeleted, function (res) {
+    //         cb(res);
+    //     });
+    // }
 };
+
+
 
 // Export the database functions for the controller (catsController.js).
 module.exports = burger;

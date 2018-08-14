@@ -35,13 +35,13 @@ var orm = {
     },
 
     // delete One Burger
-    deleteOne: function (table, idDeleted, cb) {
-        var queryString = 'DELETE FROM ' + table + ' WHERE id= ' + idDeleted + ';';
-        connection.query(queryString, function (err, result) {
-            if (err) throw err;
-            cb(result);
-        });
-    }
+    // deleteOne: function (table, idDeleted, cb) {
+    //     var queryString = 'DELETE FROM ' + table + ' WHERE id= ' + idDeleted + ';';
+    //     connection.query(queryString, function (err, result) {
+    //         if (err) throw err;
+    //         cb(result);
+    //     });
+    // }
 
 }
 
