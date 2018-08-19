@@ -4,9 +4,7 @@
     <div class="row">
         <br>
         <div class="col-md-6">
-            {{!-- looping thru the burgers data --}} 
-            {{#each burgerData}}
-            {{#unless this.devoured}}
+            {{!-- looping thru the burgers data --}} {{#each burgerData}} {{#unless this.devoured}}
 
             <div class="col-xs-9">
                 <!-- display the id (number) and burger_name of each burger on html -->
@@ -15,11 +13,11 @@
 
             <div class="col-xs-3 text-center">
                 <!-- creates button that gives button id and burger name back to server, unless devoured is TRUE -->
-                <form action="/burgers/update/{{this.id}}?_method=PUT" method="POST">
-                
-                    <button type="submit" class="btn btn-success">DEVOUR IT</button>
-                </form>
-            </div>
+                {{!-- <form action="/burgers/update/{{this.id}}?_method=PUT" method="POST"> --}}
+                    <input type="hidden" name="burger_id" type="text" value={{this.id}}>
+                    <button type="submit" data-id="{{this.id}}" class="btn btn-success devour">DEVOUR IT</button>
+                {{!-- </form> --}}
+            </div> 
 
             {{/unless}} {{/each}}
 
@@ -40,6 +38,8 @@
 
     <div class="row">
         <div class="col-md-4 col-md-offset-4 text-center enter-section">
+            <p>What Burger Are You Ordering?</p>
+            <br>
             <form action="/burgers/create" method="POST">
                 <input type="text" name="burger_name" class="form-control" value="">
                 <br>
@@ -49,9 +49,10 @@
                     </div>
                 </div>
             </form>
+
             <br>
-            <p>What Burger Are You Ordering?</p>
         </div>
     </div>
+    <hr>
 </div>
-</div>
+

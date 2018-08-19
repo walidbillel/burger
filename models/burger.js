@@ -14,17 +14,13 @@ var burger = {
             cb(res);
         });
     },
+
     update: function (updatedId, cb) {
         orm.updateOne("burgers", updatedId, function (res) {
             cb(res);
         });
     },
 
-    // delete: function (idDeleted, cb) {
-    //     orm.deleteOne("burgers", idDeleted, function (res) {
-    //         cb(res);
-    //     });
-    // }
 };
 
 

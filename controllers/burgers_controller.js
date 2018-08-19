@@ -14,6 +14,12 @@ router.get("/", function (req, res) {
     });
 });
 
+router.get("/api/burgers", function(req, res){
+    burger.all(function(burgerData){
+        res.json(burgerData);
+    })
+})
+
 
 // Route to create another burger
 router.post('/burgers/create', function (req, res) {
@@ -22,23 +28,14 @@ router.post('/burgers/create', function (req, res) {
     });
 });
 
-router.put('/burgers/update/:id', function (req, res) {
+router.put('/api/burgers/:id', function (req, res) {
 
-    burger.update(req.body.id, function (result) {
+    burger.update(req.params.id, function (result) {
         // console.log(result);
 
         res.redirect('/');
     });
 });
-
-// router.delete('/burgers/delete/:id', function (req, res) {
-//     burger.delete(req.params.id, function (result) {
-//         res.redirect('/');
-//     });
-// });
-
-
-
 
 
 // exporting the router

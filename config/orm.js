@@ -3,6 +3,7 @@ var connection = require("./connection");
 
 // console.log(connection);
 
+
 var orm = {
     // Select All The Burgers in the database
     selectAll: function (table, cb) {
@@ -44,10 +45,7 @@ var orm = {
     // }
 
 }
-
-// orm.insertOne("burgers", "Cheese Steak Burger");
-// orm.selectAll("burgers");
-
+  
 
 // Export ORM
 module.exports = orm;
