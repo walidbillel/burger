@@ -13,10 +13,10 @@
 
             <div class="col-xs-3 text-center">
                 <!-- creates button that gives button id and burger name back to server, unless devoured is TRUE -->
-                {{!-- <form action="/burgers/update/{{this.id}}?_method=PUT" method="POST"> --}}
+                <form>
                     <input type="hidden" name="burger_id" type="text" value={{this.id}}>
                     <button type="submit" data-id="{{this.id}}" class="btn btn-success devour">DEVOUR IT</button>
-                {{!-- </form> --}}
+                </form>
             </div> 
 
             {{/unless}} {{/each}}

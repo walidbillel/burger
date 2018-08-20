@@ -14,11 +14,11 @@ router.get("/", function (req, res) {
     });
 });
 
-router.get("/api/burgers", function(req, res){
-    burger.all(function(burgerData){
+router.get("/api/burgers", function (req, res) {
+    burger.all(function (burgerData) {
         res.json(burgerData);
-    })
-})
+    });
+});
 
 
 // Route to create another burger
@@ -28,12 +28,28 @@ router.post('/burgers/create', function (req, res) {
     });
 });
 
-router.put('/api/burgers/:id', function (req, res) {
+router.get("/api/burgers/:id", function (req, res) {
+    // console.log(req.params.id);
+    var condition = "id = " + req.params.id;
+    burger.one(condition, function (result) {
+        res.json(result);
+    });
+});
 
-    burger.update(req.params.id, function (result) {
-        // console.log(result);
+router.put("/api/burgers/:id", function (req, res) {
+    var condition = "id = " + req.params.id;
 
-        res.redirect('/');
+    console.log("condition", condition);
+
+    burger.update({
+        devoured: req.body.devoured
+    }, condition, function (result) {
+        if (result.changedRows == 0) {
+            // If no rows were changed, then the ID must not exist, so 404
+            return res.status(404).end();
+        } else {
+            res.status(200).end();
+        }
     });
 });
 

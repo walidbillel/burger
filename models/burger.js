@@ -8,6 +8,12 @@ var burger = {
             cb(res);
         });
     },
+
+    one: function(condition, cd) {
+        orm.selectOne("burgers", condition, function(res){
+            cd(res);
+        });
+    },
     // The variables cols and vals are arrays.
     insert: function (val, cb) {
         orm.insertOne("burgers", val, function (res) {
@@ -15,8 +21,8 @@ var burger = {
         });
     },
 
-    update: function (updatedId, cb) {
-        orm.updateOne("burgers", updatedId, function (res) {
+    update: function (objColVals, condition, cb) {
+        orm.updateOne("burgers", objColVals, condition, function (res) {
             cb(res);
         });
     },
