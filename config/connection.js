@@ -4,10 +4,18 @@ var mysql = require("mysql");
 var connection = mysql.createConnection({
   host: "lyl3nln24eqcxxot.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
   port: 3306,
-  user: "c90a5hxzyqqikgq4",
-  password: "nj6h4zvart39f128",
+  username: "c90a5hxzyqqikgq4",
+  password: "slacit9v6mu456xo",
   database: "qj46e5t6v44be2bb"
 });
+
+// var connection = mysql.createConnection({
+//   host: "localhost",
+//   port: 3306,
+//   user: "root",
+//   password: "root",
+//   database: "burger_db"
+// });
 
 // Make connection.root
 connection.connect(function(err) {
